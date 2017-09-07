@@ -1,0 +1,5 @@
+dist/
+**/__pycache__
+*.tar
+**/*.pyc
+klue_microservice
