@@ -34,6 +34,23 @@ paths:
             $ref: '#/definitions/Hello'
 
 
+  /die:
+    get:
+      summary: A failed api call
+      description: |
+        Make the server raise an exception and see how it gets handled.
+      tags:
+        - Hello
+      produces:
+        - application/json
+      x-bind-server: helloworld.api.do_crash
+      responses:
+        '200':
+          description: Hello message
+          schema:
+            $ref: '#/definitions/Hello'
+
+
 definitions:
 
 
