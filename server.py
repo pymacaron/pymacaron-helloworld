@@ -1,18 +1,14 @@
-import click
 import os
 import sys
 import logging
 from flask import Flask
-from klue_microservice import API
+from klue_microservice import API, letsgo
 
 
 log = logging.getLogger(__name__)
 
 
-@click.command()
-@click.option('--port', help="Set server listening port (default: 80)", default=80)
-@click.option('--debug/--no-debug', default=True)
-def main(port, debug):
+def start(port, debug):
 
     here = os.path.dirname(os.path.realpath(__file__))
     path_apis = os.path.join(here, "apis")
@@ -29,8 +25,4 @@ def main(port, debug):
     api.start(serve="helloworld")
 
 
-if __name__ == "__main__":
-    main()
-
-if os.path.basename(sys.argv[0]) == 'gunicorn':
-    start()
+letsgo(__name__, callback=start)

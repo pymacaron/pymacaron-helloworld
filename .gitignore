@@ -3,3 +3,4 @@ dist/
 *.tar
 **/*.pyc
 klue_microservice
+.ebextensions/
