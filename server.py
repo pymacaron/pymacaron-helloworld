@@ -18,7 +18,13 @@ def main(port, debug):
     path_apis = os.path.join(here, "apis")
 
     app = Flask(__name__)
-    api = API(app, port=port, debug=debug, jwt_secret='12345123451234512345')
+    api = API(
+        app,
+        port=port,
+        debug=debug,
+        jwt_secret=os.environ.get("KLUE_JWT_SECRET"),
+        jwt_audience=os.environ.get("KLUE_JWT_AUDIENCE"),
+    )
     api.load_apis(path_apis)
     api.start(serve="helloworld")
 

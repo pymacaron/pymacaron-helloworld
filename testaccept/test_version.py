@@ -17,8 +17,8 @@ class Test(KlueMicroServiceTestCase):
     def test_version(self):
         self.assertHasVersion(verify_ssl=self.verify_ssl)
 
-     def test_auth_version(self):
-         self.assertHasAuthVersion(verify_ssl=self.verify_ssl)
+    def test_auth_version(self):
+        self.assertHasAuthVersion(verify_ssl=self.verify_ssl)
 
 if __name__ == '__main__':
     unittest.main()
