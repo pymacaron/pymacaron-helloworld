@@ -20,6 +20,7 @@ def start(port, debug):
         debug=debug,
         jwt_secret=os.environ.get("KLUE_JWT_SECRET"),
         jwt_audience=os.environ.get("KLUE_JWT_AUDIENCE"),
+        jwt_issuer=os.environ.get("KLUE_JWT_ISSUER"),
     )
     api.load_apis(path_apis)
     api.start(serve="helloworld")
