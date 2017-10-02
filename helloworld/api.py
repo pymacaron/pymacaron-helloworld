@@ -1,4 +1,6 @@
 import logging
+import time
+from klue_async import asynctask
 from klue.swagger.apipool import ApiPool
 
 
@@ -11,3 +13,15 @@ def do_hello():
 
 def do_crash():
     raise Exception("OH! NO! I JUST DIED!!")
+
+
+@asynctask
+def my_task(x, y):
+    log.info("I am executing asynchronously :-)")
+    log.info("%s + %s = %s" % (x, y, x + y))
+    time.sleep(4)
+    log.info("And returning...")
+
+def do_async():
+    my_task(2, 3)
+    return ApiPool.helloworld.model.Hello(message='Hello world!')

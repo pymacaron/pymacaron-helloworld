@@ -5,7 +5,8 @@ info:
   title: Helloworld API
   version: "0.0.1"
   description: |
-    Implement the /ping and /version endpoints common to all services.
+
+    A few example endpoints.
 
 host: localhost
 # array of all schemes that your API supports
@@ -47,6 +48,23 @@ paths:
       responses:
         '200':
           description: Hello message
+          schema:
+            $ref: '#/definitions/Hello'
+
+
+  /async:
+    get:
+      summary: An asynchronous api call
+      description: |
+        Start a celery task in the background and return without waiting for results.
+      tags:
+        - Hello
+      produces:
+        - application/json
+      x-bind-server: helloworld.api.do_async
+      responses:
+        '200':
+          description: Ok.
           schema:
             $ref: '#/definitions/Hello'
 
