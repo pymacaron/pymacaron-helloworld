@@ -24,4 +24,5 @@ def my_task(x, y):
 
 def do_async():
     my_task(2, 3)
+    log.info("REST endpoint returning now!")
     return ApiPool.helloworld.model.Hello(message='Hello world!')
