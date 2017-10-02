@@ -7,8 +7,6 @@ aws_instance_type: t2.micro
 aws_cert_arn: <ARN_OF_SSL_CERTIFICATE>
 
 with_async: true
-load_async_modules:
-  - helloworld.api
 
 jwt_issuer: api.helloworld.com
 jwt_audience: helloworldaudienceisgreat
