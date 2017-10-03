@@ -69,6 +69,24 @@ paths:
             $ref: '#/definitions/Hello'
 
 
+  /asyncdie:
+    get:
+      summary: An asynchronous api call whose task dies
+      description: |
+        Same as /async, but the task raises an Exception. So you can watch Klue's error
+        handler in action :-)
+      tags:
+        - Hello
+      produces:
+        - application/json
+      x-bind-server: helloworld.api.do_async_die
+      responses:
+        '200':
+          description: Ok.
+          schema:
+            $ref: '#/definitions/Hello'
+
+
 definitions:
 
 
