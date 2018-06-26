@@ -1,8 +1,7 @@
 import os
-import sys
 import logging
 from flask import Flask
-from klue_microservice import API, letsgo
+from pymacaron import API, letsgo
 
 
 log = logging.getLogger(__name__)

@@ -10,8 +10,8 @@ with_async: true
 
 jwt_issuer: api.helloworld.com
 jwt_audience: helloworldaudienceisgreat
-jwt_secret: KLUE_JWT_SECRET
+jwt_secret: PYM_JWT_SECRET
 live_host: helloworld.com
 
 env_secrets:
-  - KLUE_JWT_SECRET
+  - PYM_JWT_SECRET

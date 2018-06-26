@@ -1,7 +1,7 @@
 import logging
 import time
-from klue_async import asynctask
-from klue.swagger.apipool import ApiPool
+from pymacaron_async import asynctask
+from pymacaron_core.swagger.apipool import ApiPool
 
 
 log = logging.getLogger(__name__)

@@ -1,4 +1,4 @@
-# This is a swagger description of the Klue search api
+# This is a swagger description of the PyMacaron Helloworld api
 
 swagger: '2.0'
 info:
@@ -73,7 +73,7 @@ paths:
     get:
       summary: An asynchronous api call whose task dies
       description: |
-        Same as /async, but the task raises an Exception. So you can watch Klue's error
+        Same as /async, but the task raises an Exception. So you can watch PyMacaron's error
         handler in action :-)
       tags:
         - Hello

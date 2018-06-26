@@ -1,9 +1,8 @@
-# klue-microservice-helloworld
+# pymacaron-helloworld
 
-A super simple REST api server illustrating how to use klue-microservice.
+A super simple REST api server illustrating how to use pymacaron
 
-See [klue-microservice](https://github.com/erwan-lemonnier/klue-microservice)
-for more information.
+See [pymacaron](https://github.com/pymacaron/pymacaron) for more information.
 
 ## Asynchronous task
 
