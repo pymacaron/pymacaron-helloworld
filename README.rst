@@ -2,7 +2,7 @@
 
 A super simple REST api server illustrating how to use pymacaron
 
-See [pymacaron](https://github.com/pymacaron/pymacaron) for more information.
+See https://github.com/pymacaron/pymacaron for more information.
 
 ## Asynchronous task
 
