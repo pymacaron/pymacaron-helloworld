@@ -3,4 +3,5 @@ dist/
 *.tar
 **/*.pyc
 pymacaron
+pymacaron_async
 .ebextensions/
