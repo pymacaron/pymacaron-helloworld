@@ -1,14 +1,14 @@
 import logging
 import time
 from pymacaron_async import asynctask
-from pymacaron_core.swagger.apipool import ApiPool
+from pymacaron import get_model
 
 
 log = logging.getLogger(__name__)
 
 
 def do_hello():
-    return ApiPool.helloworld.model.Hello(message='Hello world!')
+    return get_model('Hello')(message='Hello world!')
 
 
 def do_crash():
@@ -25,7 +25,7 @@ def my_task(x, y):
 def do_async():
     my_task(2, 3)
     log.info("REST endpoint returning now!")
-    return ApiPool.helloworld.model.Hello(message='Hello world!')
+    return get_model('Hello')(message='Hello world!')
 
 
 @asynctask
@@ -36,4 +36,4 @@ def my_task_dies(d):
 def do_async_die():
     my_task_dies({'msg': 'Oh no!'})
     log.info("REST endpoint returning now!")
-    return ApiPool.helloworld.model.Hello(message='Hello world!')
+    return get_model('Hello')(message='Hello world!')
