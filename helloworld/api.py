@@ -8,10 +8,17 @@ log = logging.getLogger(__name__)
 
 
 def do_hello():
+    """Replies to a call to /hello"""
     return get_model('Hello')(message='Hello world!')
 
 
+#
+# The following methods are for educational purpose only.
+# Remove them when cloning helloworld to bootstrap your own microservice.
+#
+
 def do_crash():
+    """Call /die and see how pymacaron handles an exception"""
     raise Exception("OH! NO! I JUST DIED!!")
 
 
@@ -23,6 +30,7 @@ def my_task(x, y):
     log.info("And returning...")
 
 def do_async():
+    """Call /async and see how pymacaron spawns an asynchronous task"""
     my_task(2, 3)
     log.info("REST endpoint returning now!")
     return get_model('Hello')(message='Hello world!')
