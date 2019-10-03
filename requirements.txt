@@ -1,3 +1,4 @@
 pymacaron
 pymacaron-async
 pycodestyle
+pathlib2
