@@ -103,6 +103,19 @@ definitions:
       - message
 
 
+  Code:
+    type: object
+    description: A unique uuid4 code
+    properties:
+      code:
+        type: string
+        description: The uuid4 code
+    example:
+      code: 159f9413-a350-4b47-8442-d8308040b151
+    required:
+      - code
+
+
   Error:
     type: object
     description: An api error

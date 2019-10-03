@@ -8,6 +8,8 @@ aws_cert_arn: <ARN_OF_SSL_CERTIFICATE>
 
 with_async: true
 
+uuid_file_path: /tmp/test-pymacaron-async
+
 jwt_issuer: api.helloworld.com
 jwt_audience: helloworldaudienceisgreat
 jwt_secret: PYM_JWT_SECRET

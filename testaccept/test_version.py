@@ -1,5 +1,4 @@
 import logging
-import os
 from pymacaron.test import PyMacaronTestCase
 
 
@@ -10,8 +9,7 @@ class Test(PyMacaronTestCase):
 
     def setUp(self):
         super(Test, self).setUp()
-        self.verify_ssl = True if 'klue.' in os.environ.get('PYM_SERVER_HOST', '') else False
-        log.debug("TEST: verify_ssl=%s" % self.verify_ssl)
+        self.verify_ssl = False
 
     def test_ping(self):
         self.assertHasPing()
