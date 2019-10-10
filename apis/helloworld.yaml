@@ -39,12 +39,39 @@ paths:
     get:
       summary: Say hello but requires a valid JWT token
       description: |
-        Say hello. No more, no less.
+        Say hello. Require a valid JWT token, based on the jwt_issuer,
+        jwt_audience and jwt_secret defined in pym-config.yaml.
       tags:
         - Hello
       produces:
         - application/json
       x-bind-server: helloworld.api.do_hello
+      x-decorate-server: pymacaron.auth.requires_auth
+      responses:
+        '200':
+          description: Hello message
+          schema:
+            $ref: '#/definitions/Hello'
+
+
+  /hello/with/inheritance:
+    post:
+      summary: Say hello using POST and object inheritance
+      description: |
+        Say hello. This time with a POST request whose body is passed as a
+        pymacaron model inheriting from a custom class.
+      parameters:
+        - in: body
+          name: body
+          description: A question
+          required: true
+          schema:
+            $ref: "#/definitions/Question"
+      tags:
+        - Hello
+      produces:
+        - application/json
+      x-bind-server: helloworld.api.do_hello_with_inheritance
       x-decorate-server: pymacaron.auth.requires_auth
       responses:
         '200':
@@ -119,6 +146,20 @@ definitions:
       message: hello!
     required:
       - message
+
+
+  Question:
+    type: object
+    description: A question, inheriting from a custom class
+    x-parent: helloworld.models.Question
+    properties:
+      question:
+        type: string
+        description: A string
+    example:
+      question: anybody here?
+    required:
+      - question
 
 
   Code:

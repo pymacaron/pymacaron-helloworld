@@ -14,6 +14,13 @@ def do_hello():
     return get_model('Hello')(message='Hello world!')
 
 
+def do_hello_with_inheritance(question):
+    """Take a pymacaron Question model object that also inherits from
+    helloworld.models.Question
+    """
+    return question.to_reply()
+
+
 #
 # The following methods are for educational purpose only.
 # Remove them when cloning helloworld to bootstrap your own microservice.
