@@ -3,7 +3,7 @@ from uuid import uuid4
 from pymacaron_async import asynctask
 from pymacaron.config import get_config
 from pymacaron_core.models import PyMacaronModel
-from pymacaron_core.models import get_model
+from pymacaron.models import Hello, Code
 
 
 log = logging.getLogger(__name__)
@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 def do_hello():
     """Replies to a call to /hello"""
-    return get_model('Hello')(message='Hello world!')
+    return Hello(message='Hello world!')
 
 
 def do_hello_with_inheritance(question):
@@ -53,7 +53,7 @@ def my_task_async(a, b, c, d, o, dict_arg=None):
 def do_async():
     """Call /async and see how pymacaron spawns an asynchronous task"""
     # Generate a unique code
-    code = get_model('Code')(
+    code = Code(
         code=str(uuid4()),
     )
 
@@ -62,7 +62,7 @@ def do_async():
     my_task_async(1, '2', {'3': '4'}, [5, 6, 7], code, dict_arg=code)
 
     log.info("REST endpoint returning now!")
-    return get_model('Hello')(message='Writing code %s' % code.code)
+    return Hello(message='Writing code %s' % code.code)
 
 
 @asynctask()
@@ -74,4 +74,4 @@ def my_task_dies(d):
 def do_async_die():
     my_task_dies({'msg': 'Oh no!'})
     log.info("REST endpoint returning now!")
-    return get_model('Hello')(message='Hello world!')
+    return Hello(message='Hello world!')

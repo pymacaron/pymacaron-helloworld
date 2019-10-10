@@ -1,5 +1,5 @@
 import logging
-from pymacaron_core.models import get_model
+import pymacaron.models
 
 
 log = logging.getLogger(__name__)
@@ -10,4 +10,4 @@ class Question():
     from this python class, by way of the 'x-parent' declaration in the schema"""
 
     def to_reply(self):
-        return get_model('Hello')(message="You said: %s" % self.question)
+        return pymacaron.models.Hello(message="You said: %s" % self.question)
