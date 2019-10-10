@@ -35,6 +35,24 @@ paths:
             $ref: '#/definitions/Hello'
 
 
+  /hello/with/auth:
+    get:
+      summary: Say hello but requires a valid JWT token
+      description: |
+        Say hello. No more, no less.
+      tags:
+        - Hello
+      produces:
+        - application/json
+      x-bind-server: helloworld.api.do_hello
+      x-decorate-server: pymacaron.auth.requires_auth
+      responses:
+        '200':
+          description: Hello message
+          schema:
+            $ref: '#/definitions/Hello'
+
+
   /die:
     get:
       summary: A failed api call
