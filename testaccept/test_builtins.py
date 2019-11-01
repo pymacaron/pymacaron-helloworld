@@ -1,5 +1,6 @@
 import logging
 from pymacaron.test import PyMacaronTestCase
+from pymacaron.auth import generate_token
 
 
 log = logging.getLogger(__name__)
@@ -10,6 +11,7 @@ class Test(PyMacaronTestCase):
     def setUp(self):
         super(Test, self).setUp()
         self.verify_ssl = False
+        self.token = generate_token(user_id='test-jwt-token')
 
     def test_ping(self):
         # Test the builtin endpoint /ping
