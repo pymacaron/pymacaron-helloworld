@@ -4,4 +4,7 @@ dist/
 **/*.pyc
 pymacaron
 pymacaron_async
+pymacaron_core
+pymacaron_dynamodb
+pymacaron_unit
 .ebextensions/
