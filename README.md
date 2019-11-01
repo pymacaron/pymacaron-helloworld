@@ -18,7 +18,7 @@ python server.py --port 8080
 In a second terminal, do:
 
 ```shell
-pymtest
+pymtest --gen-token
 ```
 
 All pymacaron microservices implement the default routes 'v1/ping',
