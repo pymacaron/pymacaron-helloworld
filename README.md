@@ -1,28 +1,36 @@
 # pymacaron-helloworld
 
-A super simple REST api server illustrating how to use pymacaron
+A simple REST api server illustrating how to use pymacaron
 
 See [pymacaron](https://github.com/pymacaron/pymacaron) for more information.
 
+## Requirements
+
+* python >= 3.8
+
 ## Start the server and run tests
 
-Once you have checked out 'pymacaron-helloworld', start by running the server
-and executing its api tests to make sure all is in order.
+Once you have checked out 'pymacaron-helloworld', install dependencies with
 
-In one terminal, do:
+```shell
+pip install -r requirements.txt
+```
+
+Start the server with:
 
 ```shell
 python server.py --port 8080
 ```
 
-In a second terminal, do:
+To executing api tests, type in a second terminal window:
 
 ```shell
 pymtest
 ```
 
-All pymacaron microservices implement the default routes 'v1/ping',
-'v1/version' and 'v1/auth/version', defined [here](https://github.com/pymacaron/pymacaron/blob/master/pymacaron/ping.yaml).
+All pymacaron microservices implement the default routes '/ping', '/version'
+and '/auth/version', defined
+[here](https://github.com/pymacaron/pymacaron/blob/master/pymacaron/ping.yaml).
 
 ## Asynchronous task
 

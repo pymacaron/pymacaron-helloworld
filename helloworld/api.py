@@ -2,8 +2,8 @@ import logging
 from uuid import uuid4
 from pymacaron_async import asynctask
 from pymacaron.config import get_config
-from pymacaron_core.models import PyMacaronModel
-from pymacaron.models import Hello, Code
+from pymacaron.model import PymacaronBaseModel
+from pymacaron import apipool
 
 
 log = logging.getLogger(__name__)
@@ -11,7 +11,7 @@ log = logging.getLogger(__name__)
 
 def do_hello():
     """Replies to a call to /hello"""
-    return Hello(message='Hello world!')
+    return apipool.helloworld.Hello(message='Hello world!')
 
 
 def do_hello_with_inheritance(question):
@@ -39,8 +39,8 @@ def my_task_async(a, b, c, d, o, dict_arg=None):
     assert b == '2'
     assert c == {'3': '4'}
     assert d == [5, 6, 7]
-    assert isinstance(o, PyMacaronModel)
-    assert isinstance(dict_arg, PyMacaronModel)
+    assert isinstance(o, PymacaronBaseModel)
+    assert isinstance(dict_arg, PymacaronBaseModel)
     assert dict_arg.code == o.code
 
     # write the unique code to the uuid file
@@ -53,7 +53,7 @@ def my_task_async(a, b, c, d, o, dict_arg=None):
 def do_async():
     """Call /async and see how pymacaron spawns an asynchronous task"""
     # Generate a unique code
-    code = Code(
+    code = apipool.helloworld.Code(
         code=str(uuid4()),
     )
 
@@ -62,7 +62,7 @@ def do_async():
     my_task_async(1, '2', {'3': '4'}, [5, 6, 7], code, dict_arg=code)
 
     log.info("REST endpoint returning now!")
-    return Hello(message='Writing code %s' % code.code)
+    return apipool.helloworld.Hello(message='Writing code %s' % code.code)
 
 
 @asynctask()
@@ -74,4 +74,4 @@ def my_task_dies(d):
 def do_async_die():
     my_task_dies({'msg': 'Oh no!'})
     log.info("REST endpoint returning now!")
-    return Hello(message='Hello world!')
+    return apipool.helloworld.Hello(message='Hello world!')

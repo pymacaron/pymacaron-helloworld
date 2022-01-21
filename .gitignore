@@ -8,3 +8,4 @@ pymacaron_core
 pymacaron_dynamodb
 pymacaron_unit
 .ebextensions/
+supervisord.conf

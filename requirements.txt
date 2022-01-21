@@ -1,4 +1,4 @@
-pymacaron
-pymacaron-async
+pymacaron>=2.0.0
+pymacaron-async>=2.0.0
 pycodestyle
 pathlib2

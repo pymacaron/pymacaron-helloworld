@@ -8,9 +8,13 @@ log = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
-def my_error_reporter(title, msg):
-    """This method receives all errors that should be reported up to site admins"""
-    log.info("Helloworld error reporter received [%s] [%s]" % (title, msg))
+
+def my_error_reporter(title=None, data={}, exception=None):
+    """This method receives all errors that should be reported up to
+    site admins"""
+
+    log.info(f"Caught exception '{title}' ({exception}) with data: {data}")
+
 
 def start(port, debug):
 
@@ -24,7 +28,7 @@ def start(port, debug):
         error_reporter=my_error_reporter,
     )
     api.load_apis(path_apis)
-    api.start(serve="helloworld")
+    api.start()
 
 
 letsgo(__name__, callback=start)
