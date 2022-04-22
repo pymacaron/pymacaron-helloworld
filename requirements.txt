@@ -1,4 +1,5 @@
 pymacaron>=2.0.0
 pymacaron-async>=2.0.0
+MarkupSafe==1.1.1
 pycodestyle
 pathlib2
