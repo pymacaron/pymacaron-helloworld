@@ -25,6 +25,10 @@ sudo apt-get install redis
 ```shell
 sudo pacman -S redis
 ```
+and run the redis server in the background with:
+```shell
+redis-server &
+```
 
 Start the server with:
 
