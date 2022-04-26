@@ -16,6 +16,20 @@ Once you have checked out 'pymacaron-helloworld', install dependencies with
 pip install -r requirements.txt
 ```
 
+You will also need to install redis to correctly run the celery workers:
+* For debian distributions:
+```shell
+sudo apt-get install redis 
+```
+* For arch distributions:
+```shell
+sudo pacman -S redis
+```
+and run the redis server in the background with:
+```shell
+redis-server &
+```
+
 Start the server with:
 
 ```shell
